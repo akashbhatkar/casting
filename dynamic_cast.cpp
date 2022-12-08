@@ -24,12 +24,20 @@ class derived:public base
 
 int main()
 {
-//      base *b;
-        derived d;
-        derived *dp;
-        base ob;
-        base *b=dynamic_cast<base*>(&d);
-        dp=dynamic_cast<derived*>(b);
-        b->display();
+  base *bptr= new derived();//base *bptr= new base();
+    derived *dptr=new derived();
+    
+    // dptr=bptr;
+    dptr=dynamic_cast<derived *>(bptr);
+    if(dptr!=nullptr)
+    {
+        cout<<"successfully casted"<<endl;
+    }
+    else
+    cout<<"not cast"<<endl;
+    
 }
+/*  it is successfully casted at the time when the bse pointer contatins the 
+derived class object but the casting is failed when the base class contains the 
+base class object in that situation the casting is fauled */
 
